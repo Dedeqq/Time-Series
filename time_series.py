@@ -1,5 +1,5 @@
 import pandas as pd
-from math import floor
+import matplotlib.pyplot as plt
 
 # Load the data and edit the dataset
 dataset=pd.read_csv("station_sao_paulo.csv")
@@ -15,3 +15,12 @@ df['date']=dates
 for i in range(684):
     if df.iloc[i,1]==999.9: 
         df.iloc[i,1]=df.iloc[i-12,1]
+        
+
+plt.rcParams["figure.figsize"] = [10.50, 3.50]
+plt.rcParams["figure.autolayout"] = True
+fig = plt.figure()
+df.plot()
+spacing = 0.500
+fig.subplots_adjust(bottom=spacing)
+plt.show()
